@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/list_container"
+            android:layout_width="@dimen/match_parent"
+            android:layout_height="@dimen/match_parent"
+            app:layout_constraintBottom_toTopOf="@id/question_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="@dimen/list_padding" />
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/question_label"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_8dp"
+            android:layout_marginEnd="@dimen/dimens_8dp"
+            android:layout_marginBottom="@dimen/dimens_8dp"
+            android:hint="@string/question"
+            app:endIconDrawable="@drawable/ic_send"
+            app:endIconMode="custom"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/list_container"
+            app:startIconDrawable="@drawable/ic_question_answer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="answer"
+            type="com.amg.chatbot.retrofit.models.Result" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimens_8dp"
+            android:layout_marginStart="@dimen/QA_limits"
+            android:layout_marginEnd="@dimen/dimens_8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/AnswerColor"
+            app:cardCornerRadius="@dimen/dimens_8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image"
+                    android:layout_width="@dimen/match_parent"
+                    android:layout_height="@dimen/image_height"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher_round"
+                    app:layout_constraintBottom_toTopOf="@id/abstract_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:load_image="@{answer.image}">
+
+                </com.google.android.material.imageview.ShapeableImageView>
+
+                <TextView
+                    android:id="@+id/abstract_text"
+                    style="@style/Widget.MaterialComponents.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/dimens_8dp"
+                    android:textColor="@color/AnswerTextColor"
+                    android:textSize="@dimen/answer_size"
+                    app:layout_constraintBottom_toTopOf="@id/related_topic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image"
+                    app:text="@{answer}"
+                    tools:text="@tools:sample/lorem/random" />
+
+                <TextView
+                    android:id="@+id/related_topic"
+                    style="@style/Widget.MaterialComponents.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/dimens_8dp"
+                    android:textColor="@color/AnswerTextColor"
+                    android:textSize="@dimen/answer_size"
+                    app:image="@{image}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/abstract_text"
+                    app:related_topic="@{answer}"
+                    tools:text="@tools:sample/lorem/random" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>

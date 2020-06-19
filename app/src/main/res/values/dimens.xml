@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="match_parent">0dp</dimen>
+
+    <dimen name="dimens_8dp">8dp</dimen>
+    <dimen name="list_padding">8dp</dimen>
+
+    <dimen name="QA_limits">100dp</dimen>
+    <dimen name="image_height">100dp</dimen>
+
+    <dimen name="answer_size">18sp</dimen>
+    <dimen name="question_size">18sp</dimen>
+</resources>
